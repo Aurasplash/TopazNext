@@ -565,17 +565,17 @@ class CMeritPoints
 public:
     CMeritPoints(CCharEntity* PChar);
 
-    uint16 GetLimitPoints() const;
+    uint32 GetLimitPoints() const;
     uint8  GetMeritPoints() const;
     int32  GetMeritValue(MERIT_TYPE merit, CCharEntity* PChar);
 
-    bool AddLimitPoints(uint16 points);  // automatically adds merit points > 10000
+    bool AddLimitPoints(uint32 points);  // automatically adds merit points > 10000
     bool IsMeritExist(MERIT_TYPE merit); // проверяем существование merit
 
     void RaiseMerit(MERIT_TYPE merit); // add upgrade
     void LowerMerit(MERIT_TYPE merit); // del upgrade
 
-    void SetLimitPoints(uint16 points); // used for loading player limit points on login
+    void SetLimitPoints(uint32 points); // used for loading player limit points on login
     void SetMeritPoints(uint16 points); // used for loading player merit points on login
 
     const Merit_t* GetMerit(MERIT_TYPE merit);
@@ -585,7 +585,7 @@ public:
     void SaveMeritPoints(uint32 charid); // save char applied merits
 
 private:
-    uint16       m_LimitPoints;
+    uint32       m_LimitPoints;
     uint8        m_MeritPoints;
     CCharEntity* m_PChar;
     Merit_t      merits[MERITS_COUNT];

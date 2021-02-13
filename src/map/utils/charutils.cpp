@@ -107,9 +107,9 @@ along with this program.  If not, see http://www.gnu.org/licenses/
  ************************************************************************/
 
 // Number of rows in the exp table
-static constexpr int32                               ExpTableRowCount = 60;
-std::array<std::array<uint16, 20>, ExpTableRowCount> g_ExpTable;
-std::array<uint16, 100>                              g_ExpPerLevel;
+static constexpr int32                               ExpTableRowCount = 123;
+std::array<std::array<uint32, 99>, ExpTableRowCount> g_ExpTable;
+std::array<uint32, 100>                              g_ExpPerLevel;
 
 /************************************************************************
  *                                                                       *
@@ -329,7 +329,7 @@ namespace charutils
     void LoadChar(CCharEntity* PChar)
     {
         uint8  meritPoints = 0;
-        uint16 limitPoints = 0;
+        uint32 limitPoints = 0;
         int32  HP          = 0;
         int32  MP          = 0;
 
@@ -617,30 +617,30 @@ namespace charutils
         if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
         {
             PChar->MeritMode         = (uint8)Sql_GetIntData(SqlHandle, 0);
-            PChar->jobs.exp[JOB_WAR] = (uint16)Sql_GetIntData(SqlHandle, 1);
-            PChar->jobs.exp[JOB_MNK] = (uint16)Sql_GetIntData(SqlHandle, 2);
-            PChar->jobs.exp[JOB_WHM] = (uint16)Sql_GetIntData(SqlHandle, 3);
-            PChar->jobs.exp[JOB_BLM] = (uint16)Sql_GetIntData(SqlHandle, 4);
-            PChar->jobs.exp[JOB_RDM] = (uint16)Sql_GetIntData(SqlHandle, 5);
-            PChar->jobs.exp[JOB_THF] = (uint16)Sql_GetIntData(SqlHandle, 6);
-            PChar->jobs.exp[JOB_PLD] = (uint16)Sql_GetIntData(SqlHandle, 7);
-            PChar->jobs.exp[JOB_DRK] = (uint16)Sql_GetIntData(SqlHandle, 8);
-            PChar->jobs.exp[JOB_BST] = (uint16)Sql_GetIntData(SqlHandle, 9);
-            PChar->jobs.exp[JOB_BRD] = (uint16)Sql_GetIntData(SqlHandle, 10);
-            PChar->jobs.exp[JOB_RNG] = (uint16)Sql_GetIntData(SqlHandle, 11);
-            PChar->jobs.exp[JOB_SAM] = (uint16)Sql_GetIntData(SqlHandle, 12);
-            PChar->jobs.exp[JOB_NIN] = (uint16)Sql_GetIntData(SqlHandle, 13);
-            PChar->jobs.exp[JOB_DRG] = (uint16)Sql_GetIntData(SqlHandle, 14);
-            PChar->jobs.exp[JOB_SMN] = (uint16)Sql_GetIntData(SqlHandle, 15);
-            PChar->jobs.exp[JOB_BLU] = (uint16)Sql_GetIntData(SqlHandle, 16);
-            PChar->jobs.exp[JOB_COR] = (uint16)Sql_GetIntData(SqlHandle, 17);
-            PChar->jobs.exp[JOB_PUP] = (uint16)Sql_GetIntData(SqlHandle, 18);
-            PChar->jobs.exp[JOB_DNC] = (uint16)Sql_GetIntData(SqlHandle, 19);
-            PChar->jobs.exp[JOB_SCH] = (uint16)Sql_GetIntData(SqlHandle, 20);
-            PChar->jobs.exp[JOB_GEO] = (uint16)Sql_GetIntData(SqlHandle, 21);
-            PChar->jobs.exp[JOB_RUN] = (uint16)Sql_GetIntData(SqlHandle, 22);
+            PChar->jobs.exp[JOB_WAR] = (uint32)Sql_GetIntData(SqlHandle, 1);
+            PChar->jobs.exp[JOB_MNK] = (uint32)Sql_GetIntData(SqlHandle, 2);
+            PChar->jobs.exp[JOB_WHM] = (uint32)Sql_GetIntData(SqlHandle, 3);
+            PChar->jobs.exp[JOB_BLM] = (uint32)Sql_GetIntData(SqlHandle, 4);
+            PChar->jobs.exp[JOB_RDM] = (uint32)Sql_GetIntData(SqlHandle, 5);
+            PChar->jobs.exp[JOB_THF] = (uint32)Sql_GetIntData(SqlHandle, 6);
+            PChar->jobs.exp[JOB_PLD] = (uint32)Sql_GetIntData(SqlHandle, 7);
+            PChar->jobs.exp[JOB_DRK] = (uint32)Sql_GetIntData(SqlHandle, 8);
+            PChar->jobs.exp[JOB_BST] = (uint32)Sql_GetIntData(SqlHandle, 9);
+            PChar->jobs.exp[JOB_BRD] = (uint32)Sql_GetIntData(SqlHandle, 10);
+            PChar->jobs.exp[JOB_RNG] = (uint32)Sql_GetIntData(SqlHandle, 11);
+            PChar->jobs.exp[JOB_SAM] = (uint32)Sql_GetIntData(SqlHandle, 12);
+            PChar->jobs.exp[JOB_NIN] = (uint32)Sql_GetIntData(SqlHandle, 13);
+            PChar->jobs.exp[JOB_DRG] = (uint32)Sql_GetIntData(SqlHandle, 14);
+            PChar->jobs.exp[JOB_SMN] = (uint32)Sql_GetIntData(SqlHandle, 15);
+            PChar->jobs.exp[JOB_BLU] = (uint32)Sql_GetIntData(SqlHandle, 16);
+            PChar->jobs.exp[JOB_COR] = (uint32)Sql_GetIntData(SqlHandle, 17);
+            PChar->jobs.exp[JOB_PUP] = (uint32)Sql_GetIntData(SqlHandle, 18);
+            PChar->jobs.exp[JOB_DNC] = (uint32)Sql_GetIntData(SqlHandle, 19);
+            PChar->jobs.exp[JOB_SCH] = (uint32)Sql_GetIntData(SqlHandle, 20);
+            PChar->jobs.exp[JOB_GEO] = (uint32)Sql_GetIntData(SqlHandle, 21);
+            PChar->jobs.exp[JOB_RUN] = (uint32)Sql_GetIntData(SqlHandle, 22);
             meritPoints              = (uint8)Sql_GetIntData(SqlHandle, 23);
-            limitPoints              = (uint16)Sql_GetIntData(SqlHandle, 24);
+            limitPoints              = (uint32)Sql_GetIntData(SqlHandle, 24);
         }
 
         fmtQuery = "SELECT nameflags, mjob, sjob, hp, mp, mhflag, title, bazaar_message, zoning, "
@@ -3194,10 +3194,14 @@ namespace charutils
 
     void LoadExpTable()
     {
-        const char* fmtQuery = "SELECT r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16,r17,r18,r19,r20 "
-                               "FROM exp_table "
-                               "ORDER BY level ASC "
-                               "LIMIT %u";
+        const char* fmtQuery =
+            "SELECT "
+            "r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16,r17,r18,r19,r20,r21,r22,r23,r24,r25,r26,r27,r28,r29,r30,r31,r32,r33,r34,r35,r36,r37,r38,"
+            "r39,r40,r41,r42,r43,r44,r45,r46,r47,r48,r49,r50,r51,r52,r53,r54,r55,r56,r57,r58,r59,r60,r61,r62,r63,r64,r65,r66,r67,r68,r69,r70,r71,r72,r73,r74,"
+            "r75,r76,r77,r78,r79,r80,r81,r82,r83,r84,r85,r86,r87,r88,r89,r90,r91,r92,r93,r94,r95,r96,r97,r98,r99 "
+            "FROM exp_table "
+            "ORDER BY level ASC "
+            "LIMIT %u";
 
         int32 ret = Sql_Query(SqlHandle, fmtQuery, ExpTableRowCount);
 
@@ -3205,9 +3209,9 @@ namespace charutils
         {
             for (uint32 x = 0; x < ExpTableRowCount && Sql_NextRow(SqlHandle) == SQL_SUCCESS; ++x)
             {
-                for (uint32 y = 0; y < 20; ++y)
+                for (uint32 y = 0; y < 99; ++y)
                 {
-                    g_ExpTable[x][y] = (uint16)Sql_GetIntData(SqlHandle, y);
+                    g_ExpTable[x][y] = (uint32)Sql_GetIntData(SqlHandle, y);
                 }
             }
         }
@@ -3222,7 +3226,7 @@ namespace charutils
 
                 if (level < 100)
                 {
-                    g_ExpPerLevel[level] = (uint16)Sql_GetIntData(SqlHandle, 1);
+                    g_ExpPerLevel[level] = (uint32)Sql_GetIntData(SqlHandle, 1);
                 }
             }
         }
@@ -3235,33 +3239,33 @@ namespace charutils
      ************************************************************************/
     EMobDifficulty CheckMob(uint8 charlvl, uint8 moblvl)
     {
-        uint32 baseExp = GetRealExp(charlvl, moblvl);
+        const int32 mobLevelDif = moblvl - charlvl;
 
-        if (baseExp >= 400)
+        if (mobLevelDif >= 9)
         {
             return EMobDifficulty::IncrediblyTough;
         }
-        if (baseExp >= 350)
+        if (mobLevelDif >= 5)
         {
             return EMobDifficulty::VeryTough;
         }
-        if (baseExp >= 220)
+        if (mobLevelDif >= 1)
         {
             return EMobDifficulty::Tough;
         }
-        if (baseExp >= 200)
+        if (mobLevelDif >= 0)
         {
             return EMobDifficulty::EvenMatch;
         }
-        if (baseExp >= 160)
+        if (mobLevelDif >= -3)
         {
             return EMobDifficulty::DecentChallenge;
         }
-        if (baseExp >= 60)
+        if (mobLevelDif >= -9)
         {
             return EMobDifficulty::EasyPrey;
         }
-        if (baseExp >= 14)
+        if (mobLevelDif >= -19)
         {
             return EMobDifficulty::IncrediblyEasyPrey;
         }
@@ -3277,11 +3281,11 @@ namespace charutils
 
     uint32 GetRealExp(uint8 charlvl, uint8 moblvl)
     {
-        const int32 levelDif = moblvl - charlvl + 44;
+        const int32 levelDif = moblvl - charlvl + 98;
 
         if ((charlvl > 0) && (charlvl < 100))
         {
-            return g_ExpTable[std::clamp(levelDif, 0, ExpTableRowCount - 1)][(charlvl - 1) / 5];
+            return g_ExpTable[std::clamp(levelDif, 0, ExpTableRowCount - 1)][(charlvl - 1)];
         }
 
         return 0;
@@ -3455,13 +3459,24 @@ namespace charutils
             const uint8 moblevel    = PMob->GetMLevel();
             const uint8 memberlevel = PMember->GetMLevel();
 
-            EMobDifficulty mobCheck = CheckMob(maxlevel, moblevel);
-            float          exp      = (float)GetRealExp(maxlevel, moblevel);
+            uint8 cPValue = 10 + ((moblevel - maxlevel - (maxlevel - memberlevel)) / 2);
+            if (cPValue <= 0)
+            {
+                cPValue = 0;
+            }
+            else
+            {
+                cPValue *= 10;
+            }
 
-            if (mobCheck > EMobDifficulty::TooWeak)
+            EMobDifficulty mobCheck = CheckMob(maxlevel, moblevel);
+            float          exp      = (float)GetRealExp(memberlevel, (moblevel + memberlevel - maxlevel));
+
+            if (mobCheck >= EMobDifficulty::TooWeak)
             {
                 if (PMember->getZone() == PMob->getZone())
                 {
+                    /*
                     if (map_config.exp_party_gap_penalties == 1)
                     {
                         if (maxlevel > 50 || maxlevel > (memberlevel + 7))
@@ -3473,6 +3488,7 @@ namespace charutils
                             exp *= GetExpNEXTLevel(memberlevel) / (float)GetExpNEXTLevel(maxlevel);
                         }
                     }
+                    */
 
                     if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SIGNET) && region >= REGION_TYPE::RONFAURE && region <= REGION_TYPE::JEUNO)
                     {
@@ -3563,6 +3579,7 @@ namespace charutils
                         exp *= monsterbonus;
                     }
 
+                    /*
                     // Per monster caps pulled from: https://ffxiclopedia.fandom.com/wiki/Experience_Points
                     if (PMember->GetMLevel() <= 50)
                     {
@@ -3576,6 +3593,7 @@ namespace charutils
                     {
                         exp = std::fmin(exp, 600.f);
                     }
+                    */
 
                     if (mobCheck > EMobDifficulty::DecentChallenge)
                     {
@@ -3831,6 +3849,14 @@ namespace charutils
                         }
                     }
                     // pet or companion exp penalty needs to be added here
+                    if (PMob->PMaster != nullptr)
+                    {
+                        switch (pcinzone)
+                        {
+                            exp *= 0.25;
+                        }
+                    }
+
                     if (distance(PMember->loc.p, PMob->loc.p) > 100)
                     {
                         PMember->pushPacket(new CMessageBasicPacket(PMember, PMember, 0, 0, 37));
@@ -3839,7 +3865,7 @@ namespace charutils
 
                     exp = charutils::AddExpBonus(PMember, exp);
 
-                    charutils::AddExperiencePoints(false, PMember, PMob, (uint32)exp, mobCheck, chainactive);
+                    charutils::AddExperiencePoints(false, PMember, PMob, (uint32)exp, mobCheck, chainactive, cPValue);
                 }
             }
         });
@@ -3949,7 +3975,7 @@ namespace charutils
      *                                                                       *
      ************************************************************************/
 
-    void AddExperiencePoints(bool expFromRaise, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck, bool isexpchain)
+    void AddExperiencePoints(bool expFromRaise, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck, bool isexpchain, uint8 cPValue)
     {
         if (PChar->isDead())
         {
@@ -3960,7 +3986,7 @@ namespace charutils
         {
             exp = (uint32)(exp * map_config.exp_rate);
         }
-        uint16 currentExp  = PChar->jobs.exp[PChar->GetMJob()];
+        uint32 currentExp  = PChar->jobs.exp[PChar->GetMJob()];
         bool   onLimitMode = false;
 
         // Incase player de-levels to 74 on the field
@@ -4040,13 +4066,13 @@ namespace charutils
             if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SIGNET) && (region >= REGION_TYPE::RONFAURE && region <= REGION_TYPE::JEUNO))
             {
                 // Add influence for the players region..
-                conquest::AddConquestPoints(PChar, exp);
+                conquest::AddConquestPoints(PChar, cPValue);
             }
 
             // Should this user be awarded imperial standing..
             if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SANCTION) && (region >= REGION_TYPE::WEST_AHT_URHGAN && region <= REGION_TYPE::ALZADAAL))
             {
-                charutils::AddPoints(PChar, "imperial_standing", (int32)(exp * 0.1f));
+                charutils::AddPoints(PChar, "imperial_standing", (int32)(cPValue));
                 PChar->pushPacket(new CConquestPacket(PChar));
             }
 
