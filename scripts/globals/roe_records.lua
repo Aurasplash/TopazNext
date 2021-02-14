@@ -1644,7 +1644,7 @@ function getRoeRecords(triggers)
             goal = 200,
             reqs = { mobXP = true },
             flags = set{"repeat"},
-            reward = { sparks = 1000, xp = 5000, unity = 100 },
+            reward = { sparks = 500, xp = 5000, unity = 100 },
         },
 
         [  13] = { -- Vanquish Multiple Enemies II - 500
@@ -1673,35 +1673,35 @@ function getRoeRecords(triggers)
             goal = 20,
             reqs = { mobXP = true , levelSync = true},
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 600 , unity = 20  },
+            reward = { sparks = 100, xp = 600 , unity = 20  },
         },
 
-        [  16] = { -- Deal 500+ Damage
+        [  16] = { -- Deal 100+ Damage
             trigger = triggers.dmgDealt,
             goal = 200,
-            reqs = { dmgMin = 500 },
+            reqs = { dmgMin = 100 },
             flags = set{"repeat"},
             reward = { sparks = 1000, xp = 5000, unity = 100 },
         },
 
-        [  17] = { -- Deal 1000+ Damage
+        [  17] = { -- Deal 250+ Damage
             trigger = triggers.dmgDealt,
             goal = 150,
+            reqs = { dmgMin = 250 },
+            reward = { sparks = 1000, xp = 5000 },
+        },
+
+        [  18] = { -- Deal 500+ Damage
+            trigger = triggers.dmgDealt,
+            goal = 100,
+            reqs = { dmgMin = 500 },
+            reward = { sparks = 1000, xp = 5000 },
+        },
+
+        [ 698] = { -- Deal 1000+ Damage
+            trigger = triggers.dmgDealt,
+            goal = 100,
             reqs = { dmgMin = 1000 },
-            reward = { sparks = 1000, xp = 5000 },
-        },
-
-        [  18] = { -- Deal 1500+ Damage
-            trigger = triggers.dmgDealt,
-            goal = 100,
-            reqs = { dmgMin = 1500 },
-            reward = { sparks = 1000, xp = 5000 },
-        },
-
-        [ 698] = { -- Deal 2000+ Damage
-            trigger = triggers.dmgDealt,
-            goal = 100,
-            reqs = { dmgMin = 2000 },
             reward = { sparks = 2000, xp = 5000, item = { {8711, 6} } },
         },
 
@@ -1888,10 +1888,10 @@ function getRoeRecords(triggers)
             reward = { sparks = 2000, xp = 6000 },
         },
 
-        [ 700] = { -- Heal for 750+ HP
+        [ 700] = { -- Heal for 250+ HP
             trigger = triggers.healAlly,
             goal = 100,
-            reqs = { healMin = 750 },
+            reqs = { healMin = 250 },
             reward = { sparks = 3000, xp = 7000, item = { 6183 } },
         },
 
@@ -1912,71 +1912,71 @@ function getRoeRecords(triggers)
 
         [  71] = { -- Spoils - Fire Crystals
             trigger = triggers.itemLooted,
-            goal = 10,
+            goal = 60,
             reqs = { itemID = set{ 4096 } },
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 1000, unity = 20 },
+            reward = { sparks = 20, xp = 1000, unity = 20 },
         },
 
         [  72] = { -- Spoils - Ice Crystals
             trigger = triggers.itemLooted,
-            goal = 10,
+            goal = 60,
             reqs = { itemID = set{ 4097 } },
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 1000, unity = 20 },
+            reward = { sparks = 20, xp = 1000, unity = 20 },
         },
 
         [  73] = { -- Spoils - Wind Crystals
             trigger = triggers.itemLooted,
-            goal = 10,
+            goal = 60,
             reqs = { itemID = set{ 4098 } },
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 1000, unity = 20 },
+            reward = { sparks = 20, xp = 1000, unity = 20 },
         },
 
         [  74] = { -- Spoils - Earth Crystals
             trigger = triggers.itemLooted,
-            goal = 10,
+            goal = 60,
             reqs = { itemID = set{ 4099 } },
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 1000, unity = 20 },
+            reward = { sparks = 20, xp = 1000, unity = 20 },
         },
 
         [  75] = { -- Spoils - Lightning Crystals
             trigger = triggers.itemLooted,
-            goal = 10,
+            goal = 60,
             reqs = { itemID = set{ 4100 } },
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 1000, unity = 20 },
+            reward = { sparks = 20, xp = 1000, unity = 20 },
         },
 
         [  76] = { -- Spoils - Water Crystals
             trigger = triggers.itemLooted,
-            goal = 10,
+            goal = 60,
             reqs = { itemID = set{ 4101 } },
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 1000, unity = 20 },
+            reward = { sparks = 20, xp = 1000, unity = 20 },
         },
 
         [  77] = { -- Spoils - Light Crystals
             trigger = triggers.itemLooted,
-            goal = 10,
+            goal = 60,
             reqs = { itemID = set{ 4102 } },
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 1000, unity = 20 },
+            reward = { sparks = 20, xp = 1000, unity = 20 },
         },
 
         [  78] = { -- Spoils - Dark Crystals
             trigger = triggers.itemLooted,
-            goal = 10,
+            goal = 60,
             reqs = { itemID = set{ 4103 } },
             flags = set{"repeat"},
-            reward = { sparks = 200, xp = 1000, unity = 20 },
+            reward = { sparks = 20, xp = 1000, unity = 20 },
         },
 
         [  84] = { -- Spoils - Flame Geode
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3297 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -1984,7 +1984,7 @@ function getRoeRecords(triggers)
 
         [  85] = { -- Spoils - Snow Geode
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3298 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -1992,7 +1992,7 @@ function getRoeRecords(triggers)
 
         [  86] = { -- Spoils - Breeze Geode
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3299 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2000,7 +2000,7 @@ function getRoeRecords(triggers)
 
         [  87] = { -- Spoils - Soil Geode
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3300 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2008,7 +2008,7 @@ function getRoeRecords(triggers)
 
         [  88] = { -- Spoils - Thunder Geode
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3301 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2016,7 +2016,7 @@ function getRoeRecords(triggers)
 
         [  89] = { -- Spoils - Aqua Geode
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3302 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2024,7 +2024,7 @@ function getRoeRecords(triggers)
 
         [  90] = { -- Spoils - Light Geode
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3303 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2032,7 +2032,7 @@ function getRoeRecords(triggers)
 
         [  91] = { -- Spoils - Shadow Geode
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3304 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2040,7 +2040,7 @@ function getRoeRecords(triggers)
 
         [  92] = { -- Spoils - Ifritite
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3520 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2048,7 +2048,7 @@ function getRoeRecords(triggers)
 
         [  93] = { -- Spoils - Shivite
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3521 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2056,7 +2056,7 @@ function getRoeRecords(triggers)
 
         [  94] = { -- Spoils - Garudite
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3522 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2064,7 +2064,7 @@ function getRoeRecords(triggers)
 
         [  95] = { -- Spoils - Titanite
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3523 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2072,7 +2072,7 @@ function getRoeRecords(triggers)
 
         [  96] = { -- Spoils - Ramuite
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3524 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2080,7 +2080,7 @@ function getRoeRecords(triggers)
 
         [  97] = { -- Spoils - Leviatite
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3525 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2088,7 +2088,7 @@ function getRoeRecords(triggers)
 
         [  98] = { -- Spoils - Carbite
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3526 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2096,7 +2096,7 @@ function getRoeRecords(triggers)
 
         [  99] = { -- Spoils - Fenrite
             trigger = triggers.itemLooted,
-            goal = 3,
+            goal = 12,
             reqs = { itemID = set{ 3527 } },
             flags = set{"repeat"},
             reward = { sparks = 200, xp = 1000, unity = 20 },
@@ -2108,7 +2108,7 @@ function getRoeRecords(triggers)
 
         [ 120] = { -- Spoils - Bat Wing
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 922 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2116,7 +2116,7 @@ function getRoeRecords(triggers)
 
         [ 121] = { -- Spoils - Black Tiger Fang
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 884 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2124,7 +2124,7 @@ function getRoeRecords(triggers)
 
         [ 122] = { -- Spoils - Flint Stone
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 768 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2132,7 +2132,7 @@ function getRoeRecords(triggers)
 
         [ 123] = { -- Spoils - Rabbit Hide
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 856 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2140,7 +2140,7 @@ function getRoeRecords(triggers)
 
         [ 124] = { -- Spoils - Honey
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 4370 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2148,7 +2148,7 @@ function getRoeRecords(triggers)
 
         [ 125] = { -- Spoils - Sheepskin
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 505 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2156,7 +2156,7 @@ function getRoeRecords(triggers)
 
         [ 126] = { -- Spoils - Lizard Skin
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 852 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2164,7 +2164,7 @@ function getRoeRecords(triggers)
 
         [ 127] = { -- Spoils - Beetle Shell
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 889 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2172,7 +2172,7 @@ function getRoeRecords(triggers)
 
         [ 128] = { -- Spoils - Zeruhn Soot
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 560 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2188,7 +2188,7 @@ function getRoeRecords(triggers)
 
         [ 130] = { -- Spoils - Quadav Helm
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 501 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2196,7 +2196,7 @@ function getRoeRecords(triggers)
 
         [ 132] = { -- Spoils - Treant Bulb
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 953 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2204,7 +2204,7 @@ function getRoeRecords(triggers)
 
         [ 133] = { -- Spoils - Wild Onion
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 4387 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2212,7 +2212,7 @@ function getRoeRecords(triggers)
 
         [ 134] = { -- Spoils - Sleepshroom
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 4374 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2220,7 +2220,7 @@ function getRoeRecords(triggers)
 
         [ 135] = { -- Spoils - Sand Bat Fang
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 1015 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2228,7 +2228,7 @@ function getRoeRecords(triggers)
 
         [ 136] = { -- Spoils - Zinc Ore
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 642 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2236,7 +2236,7 @@ function getRoeRecords(triggers)
 
         [ 137] = { -- Spoils - Giant Bird Feather
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 842 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2260,7 +2260,7 @@ function getRoeRecords(triggers)
 
         [ 140] = { -- Spoils - Cornette
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 6,
             reqs = { itemID = set{ 17344 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2284,7 +2284,7 @@ function getRoeRecords(triggers)
 
         [ 143] = { -- Spoils - Yagudo Bead Necklace
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 498 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2292,7 +2292,7 @@ function getRoeRecords(triggers)
 
         [ 144] = { -- Spoils - Woozyshroom
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 4373 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2300,7 +2300,7 @@ function getRoeRecords(triggers)
 
         [ 145] = { -- Spoils - Beehive Chip
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 912 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2308,7 +2308,7 @@ function getRoeRecords(triggers)
 
         [ 146] = { -- Spoils - Remi Shell
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 1016 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -2316,7 +2316,7 @@ function getRoeRecords(triggers)
 
         [ 147] = { -- Spoils - Twinstone Earring
             trigger = triggers.itemLooted,
-            goal = 2,
+            goal = 12,
             reqs = { itemID = set{ 13360 } },
             flags = set{"repeat"},
             reward = { sparks = 100, xp = 300, unity = 10 },
@@ -3761,170 +3761,170 @@ function getRoeRecords(triggers)
       -- Achievements - Job Levels 1             
       -----------------------------------
 
-        [1200] = { -- Level 30 Warrior +
+        [1200] = { -- Level 18 Warrior +
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.WAR, 30 } },
+            reqs = { jobLvl = { tpz.job.WAR, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6152, 12} } },
         },
 
-        [1201] = { -- Level 50 Warrior
+        [1201] = { -- Level 37 Warrior
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.WAR, 50 } },
+            reqs = { jobLvl = { tpz.job.WAR, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6151, 12} } },
         },
 
-        [1202] = { -- Level 75 Warrior
+        [1202] = { -- Level 50 Warrior
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.WAR, 75 } },
+            reqs = { jobLvl = { tpz.job.WAR, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3190, 4} } },
         },
 
-        [1203] = { -- Level 99 Warrior
+        [1203] = { -- Level 75 Warrior
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.WAR, 99 } },
+            reqs = { jobLvl = { tpz.job.WAR, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4064, 2} } },
         },
 
-        [1204] = { -- Level 30 Monk
+        [1204] = { -- Level 18 Monk
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.MNK, 30 } },
+            reqs = { jobLvl = { tpz.job.MNK, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6147, 12} } },
         },
 
-        [1205] = { -- Level 50 Monk
+        [1205] = { -- Level 37 Monk
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.MNK, 50 } },
+            reqs = { jobLvl = { tpz.job.MNK, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6158, 12} } },
         },
 
-        [1206] = { -- Level 75 Monk
+        [1206] = { -- Level 50 Monk
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.MNK, 75 } },
+            reqs = { jobLvl = { tpz.job.MNK, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3191, 4} } },
         },
 
-        [1207] = { -- Level 99 Monk
+        [1207] = { -- Level 75 Monk
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.MNK, 99 } },
+            reqs = { jobLvl = { tpz.job.MNK, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4065, 2} } },
         },
 
-        [1208] = { -- Level 30 White Mage
+        [1208] = { -- Level 18 White Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.WHM, 30 } },
+            reqs = { jobLvl = { tpz.job.WHM, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6167, 12} } },
         },
 
-        [1209] = { -- Level 50 White Mage
+        [1209] = { -- Level 37 White Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.WHM, 50 } },
+            reqs = { jobLvl = { tpz.job.WHM, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6166, 12} } },
         },
 
-        [1210] = { -- Level 75 White Mage
+        [1210] = { -- Level 50 White Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.WHM, 75 } },
+            reqs = { jobLvl = { tpz.job.WHM, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3192, 4} } },
         },
 
-        [1211] = { -- Level 99 White Mage
+        [1211] = { -- Level 75 White Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.WHM, 99 } },
+            reqs = { jobLvl = { tpz.job.WHM, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4066, 2} } },
         },
 
-        [1212] = { -- Level 30 Black Mage
+        [1212] = { -- Level 18 Black Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BLM, 30 } },
+            reqs = { jobLvl = { tpz.job.BLM, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6170, 12} } },
         },
 
-        [1213] = { -- Level 50 Black Mage
+        [1213] = { -- Level 37 Black Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BLM, 50 } },
+            reqs = { jobLvl = { tpz.job.BLM, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6171, 12} } },
         },
 
-        [1214] = { -- Level 75 Black Mage
+        [1214] = { -- Level 50 Black Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BLM, 75 } },
+            reqs = { jobLvl = { tpz.job.BLM, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3193, 4} } },
         },
 
-        [1215] = { -- Level 99 Black Mage
+        [1215] = { -- Level 75 Black Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BLM, 99 } },
+            reqs = { jobLvl = { tpz.job.BLM, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4067, 2} } },
         },
 
-        [1216] = { -- Level 30 Red Mage
+        [1216] = { -- Level 18 Red Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RDM, 30 } },
+            reqs = { jobLvl = { tpz.job.RDM, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6169, 12} } },
         },
 
-        [1217] = { -- Level 50 Red Mage
+        [1217] = { -- Level 37 Red Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RDM, 50 } },
+            reqs = { jobLvl = { tpz.job.RDM, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6168, 12} } },
         },
 
-        [1218] = { -- Level 75 Red Mage
+        [1218] = { -- Level 50 Red Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RDM, 75 } },
+            reqs = { jobLvl = { tpz.job.RDM, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3194, 4} } },
         },
 
-        [1219] = { -- Level 99 Red Mage
+        [1219] = { -- Level 75 Red Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RDM, 99 } },
+            reqs = { jobLvl = { tpz.job.RDM, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4068, 2} } },
         },
 
-        [1220] = { -- Level 30 Thief
+        [1220] = { -- Level 18 Thief
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.THF, 30 } },
+            reqs = { jobLvl = { tpz.job.THF, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6148, 12} } },
         },
 
-        [1221] = { -- Level 50 Thief
+        [1221] = { -- Level 37 Thief
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.THF, 50 } },
+            reqs = { jobLvl = { tpz.job.THF, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6149, 12} } },
         },
 
-        [1222] = { -- Level 75 Thief
+        [1222] = { -- Level 50 Thief
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.THF, 75 } },
+            reqs = { jobLvl = { tpz.job.THF, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3195, 4} } },
         },
 
-        [1223] = { -- Level 99 Thief
+        [1223] = { -- Level 75 Thief
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.THF, 99 } },
+            reqs = { jobLvl = { tpz.job.THF, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4069, 2} } },
         },
@@ -3933,170 +3933,170 @@ function getRoeRecords(triggers)
       -- Achievements - Job Levels 2             
       -----------------------------------
 
-        [1224] = { -- Level 30 Paladin
+        [1224] = { -- Level 18 Paladin
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.PLD, 30 } },
+            reqs = { jobLvl = { tpz.job.PLD, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6149, 12} } },
         },
 
-        [1225] = { -- Level 50 Paladin
+        [1225] = { -- Level 37 Paladin
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.PLD, 50 } },
+            reqs = { jobLvl = { tpz.job.PLD, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6164, 12} } },
         },
 
-        [1226] = { -- Level 75 Paladin
+        [1226] = { -- Level 50 Paladin
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.PLD, 75 } },
+            reqs = { jobLvl = { tpz.job.PLD, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3196, 4} } },
         },
 
-        [1227] = { -- Level 99 Paladin
+        [1227] = { -- Level 75 Paladin
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.PLD, 99 } },
+            reqs = { jobLvl = { tpz.job.PLD, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4065, 2} } },
         },
 
-        [1228] = { -- Level 30 Dark Knight
+        [1228] = { -- Level 18 Dark Knight
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DRK, 30 } },
+            reqs = { jobLvl = { tpz.job.DRK, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6153, 12} } },
         },
 
-        [1229] = { -- Level 50 Dark Knight
+        [1229] = { -- Level 37 Dark Knight
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DRK, 50 } },
+            reqs = { jobLvl = { tpz.job.DRK, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6150, 12} } },
         },
 
-        [1230] = { -- Level 75 Dark Knight
+        [1230] = { -- Level 50 Dark Knight
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DRK, 75 } },
+            reqs = { jobLvl = { tpz.job.DRK, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3197, 4} } },
         },
 
-        [1231] = { -- Level 99 Dark Knight
+        [1231] = { -- Level 75 Dark Knight
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DRK, 99 } },
+            reqs = { jobLvl = { tpz.job.DRK, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4066, 2} } },
         },
 
-        [1232] = { -- Level 30 Beastmaster
+        [1232] = { -- Level 18 Beastmaster
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BST, 30 } },
+            reqs = { jobLvl = { tpz.job.BST, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6151, 12} } },
         },
 
-        [1233] = { -- Level 50 Beastmaster
+        [1233] = { -- Level 37 Beastmaster
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BST, 50 } },
+            reqs = { jobLvl = { tpz.job.BST, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6153, 12} } },
         },
 
-        [1234] = { -- Level 75 Beastmaster
+        [1234] = { -- Level 50 Beastmaster
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BST, 75 } },
+            reqs = { jobLvl = { tpz.job.BST, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3198, 4} } },
         },
 
-        [1235] = { -- Level 99 Beastmaster
+        [1235] = { -- Level 75 Beastmaster
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BST, 99 } },
+            reqs = { jobLvl = { tpz.job.BST, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4067, 2} } },
         },
 
-        [1236] = { -- Level 30 Bard
+        [1236] = { -- Level 18 Bard
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BRD, 30 } },
+            reqs = { jobLvl = { tpz.job.BRD, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6172, 12} } },
         },
 
-        [1237] = { -- Level 50 Bard
+        [1237] = { -- Level 37 Bard
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BRD, 50 } },
+            reqs = { jobLvl = { tpz.job.BRD, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6173, 12} } },
         },
 
-        [1238] = { -- Level 75 Bard
+        [1238] = { -- Level 50 Bard
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BRD, 75 } },
+            reqs = { jobLvl = { tpz.job.BRD, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3199, 4} } },
         },
 
-        [1239] = { -- Level 99 Bard
+        [1239] = { -- Level 75 Bard
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BRD, 99 } },
+            reqs = { jobLvl = { tpz.job.BRD, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4068, 2} } },
         },
 
-        [1240] = { -- Level 30 Ranger
+        [1240] = { -- Level 18 Ranger
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RNG, 30 } },
+            reqs = { jobLvl = { tpz.job.RNG, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6159, 12} } },
         },
 
-        [1241] = { -- Level 50 Ranger
+        [1241] = { -- Level 37 Ranger
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RNG, 50 } },
+            reqs = { jobLvl = { tpz.job.RNG, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6160, 12} } },
         },
 
-        [1242] = { -- Level 75 Ranger
+        [1242] = { -- Level 50 Ranger
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RNG, 75 } },
+            reqs = { jobLvl = { tpz.job.RNG, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3200, 4} } },
         },
 
-        [1243] = { -- Level 99 Ranger
+        [1243] = { -- Level 75 Ranger
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RNG, 99 } },
+            reqs = { jobLvl = { tpz.job.RNG, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4064, 2} } },
         },
 
-        [1244] = { -- Level 30 Samurai
+        [1244] = { -- Level 18 Samurai
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SAM, 30 } },
+            reqs = { jobLvl = { tpz.job.SAM, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6156, 12} } },
         },
 
-        [1245] = { -- Level 50 Samurai
+        [1245] = { -- Level 37 Samurai
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SAM, 50 } },
+            reqs = { jobLvl = { tpz.job.SAM, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6154, 12} } },
         },
 
-        [1246] = { -- Level 75 Samurai
+        [1246] = { -- Level 50 Samurai
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SAM, 75 } },
+            reqs = { jobLvl = { tpz.job.SAM, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3201, 4} } },
         },
 
-        [1247] = { -- Level 99 Samurai
+        [1247] = { -- Level 75 Samurai
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SAM, 99 } },
+            reqs = { jobLvl = { tpz.job.SAM, 75 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {4065, 2} } },
         },
@@ -4105,170 +4105,170 @@ function getRoeRecords(triggers)
       -- Achievements - Job Levels 3             
       -----------------------------------
 
-        [1248] = { -- Level 30 Ninja
+        [1248] = { -- Level 18 Ninja
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.NIN, 30 } },
+            reqs = { jobLvl = { tpz.job.NIN, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6155, 12} } },
         },
 
-        [1249] = { -- Level 50 Ninja
+        [1249] = { -- Level 37 Ninja
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.NIN, 50 } },
+            reqs = { jobLvl = { tpz.job.NIN, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6175, 12} } },
         },
 
-        [1250] = { -- Level 75 Ninja
+        [1250] = { -- Level 50 Ninja
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.NIN, 75 } },
+            reqs = { jobLvl = { tpz.job.NIN, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3202, 4} } },
         },
 
-        [1251] = { -- Level 99 Ninja
+        [1251] = { -- Level 75 Ninja
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.NIN, 99 } },
+            reqs = { jobLvl = { tpz.job.NIN, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4066, 2} } },
         },
 
-        [1252] = { -- Level 30 Dragoon
+        [1252] = { -- Level 18 Dragoon
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DRG, 30 } },
+            reqs = { jobLvl = { tpz.job.DRG, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6154, 12} } },
         },
 
-        [1253] = { -- Level 50 Dragoon
+        [1253] = { -- Level 37 Dragoon
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DRG, 50 } },
+            reqs = { jobLvl = { tpz.job.DRG, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6158, 12} } },
         },
 
-        [1254] = { -- Level 75 Dragoon
+        [1254] = { -- Level 50 Dragoon
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DRG, 75 } },
+            reqs = { jobLvl = { tpz.job.DRG, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3203, 4} } },
         },
 
-        [1255] = { -- Level 99 Dragoon
+        [1255] = { -- Level 75 Dragoon
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DRG, 99 } },
+            reqs = { jobLvl = { tpz.job.DRG, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4067, 2} } },
         },
 
-        [1256] = { -- Level 30 Summoner
+        [1256] = { -- Level 18 Summoner
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SMN, 30 } },
+            reqs = { jobLvl = { tpz.job.SMN, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6176, 12} } },
         },
 
-        [1257] = { -- Level 50 Summoner
+        [1257] = { -- Level 37 Summoner
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SMN, 50 } },
+            reqs = { jobLvl = { tpz.job.SMN, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6158, 12} } },
         },
 
-        [1258] = { -- Level 75 Summoner
+        [1258] = { -- Level 50 Summoner
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SMN, 75 } },
+            reqs = { jobLvl = { tpz.job.SMN, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3204, 4} } },
         },
 
-        [1259] = { -- Level 99 Summoner
+        [1259] = { -- Level 75 Summoner
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SMN, 99 } },
+            reqs = { jobLvl = { tpz.job.SMN, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4068, 2} } },
         },
 
-        [1260] = { -- Level 30 Blue Mage
+        [1260] = { -- Level 18 Blue Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BLU, 30 } },
+            reqs = { jobLvl = { tpz.job.BLU, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6149, 12} } },
         },
 
-        [1261] = { -- Level 50 Blue Mage
+        [1261] = { -- Level 37 Blue Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BLU, 50 } },
+            reqs = { jobLvl = { tpz.job.BLU, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6177, 12} } },
         },
 
-        [1262] = { -- Level 75 Blue Mage
+        [1262] = { -- Level 50 Blue Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BLU, 75 } },
+            reqs = { jobLvl = { tpz.job.BLU, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3205, 4} } },
         },
 
-        [1263] = { -- Level 99 Blue Mage
+        [1263] = { -- Level 75 Blue Mage
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.BLU, 99 } },
+            reqs = { jobLvl = { tpz.job.BLU, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4064, 2} } },
         },
 
-        [1264] = { -- Level 30 Corsair
+        [1264] = { -- Level 18 Corsair
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.COR, 30 } },
+            reqs = { jobLvl = { tpz.job.COR, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6148, 12} } },
         },
 
-        [1265] = { -- Level 50 Corsair
+        [1265] = { -- Level 37 Corsair
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.COR, 50 } },
+            reqs = { jobLvl = { tpz.job.COR, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6160, 12} } },
         },
 
-        [1266] = { -- Level 75 Corsair
+        [1266] = { -- Level 50 Corsair
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.COR, 75 } },
+            reqs = { jobLvl = { tpz.job.COR, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3206, 4} } },
         },
 
-        [1267] = { -- Level 99 Corsair
+        [1267] = { -- Level 75 Corsair
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.COR, 99 } },
+            reqs = { jobLvl = { tpz.job.COR, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4065, 2} } },
         },
 
-        [1268] = { -- Level 30 Puppetmaster
+        [1268] = { -- Level 18 Puppetmaster
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.PUP, 30 } },
+            reqs = { jobLvl = { tpz.job.PUP, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6147, 12} } },
         },
 
-        [1269] = { -- Level 50 Puppetmaster
+        [1269] = { -- Level 37 Puppetmaster
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.PUP, 50 } },
+            reqs = { jobLvl = { tpz.job.PUP, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6148, 12} } },
         },
 
-        [1270] = { -- Level 75 Puppetmaster
+        [1270] = { -- Level 50 Puppetmaster
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.PUP, 75 } },
+            reqs = { jobLvl = { tpz.job.PUP, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3207, 4} } },
         },
 
-        [1271] = { -- Level 99 Puppetmaster
+        [1271] = { -- Level 75 Puppetmaster
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.PUP, 99 } },
+            reqs = { jobLvl = { tpz.job.PUP, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4066, 2} } },
         },
@@ -4277,114 +4277,114 @@ function getRoeRecords(triggers)
       -- Achievements - Job Levels 4             
       -----------------------------------
 
-        [1272] = { -- Level 30 Dancer
+        [1272] = { -- Level 18 Dancer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DNC, 30 } },
+            reqs = { jobLvl = { tpz.job.DNC, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6148, 12} } },
         },
 
-        [1273] = { -- Level 50 Dancer
+        [1273] = { -- Level 37 Dancer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DNC, 50 } },
+            reqs = { jobLvl = { tpz.job.DNC, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6147, 12} } },
         },
 
-        [1274] = { -- Level 75 Dancer
+        [1274] = { -- Level 50 Dancer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DNC, 75 } },
+            reqs = { jobLvl = { tpz.job.DNC, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3208, 4} } },
         },
 
-        [1275] = { -- Level 99 Dancer
+        [1275] = { -- Level 75 Dancer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.DNC, 99 } },
+            reqs = { jobLvl = { tpz.job.DNC, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4067, 2} } },
         },
 
-        [1276] = { -- Level 30 Scholar
+        [1276] = { -- Level 18 Scholar
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SCH, 30 } },
+            reqs = { jobLvl = { tpz.job.SCH, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6158, 12} } },
         },
 
-        [1277] = { -- Level 50 Scholar
+        [1277] = { -- Level 37 Scholar
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SCH, 50 } },
+            reqs = { jobLvl = { tpz.job.SCH, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6157, 12} } },
         },
 
-        [1278] = { -- Level 75 Scholar
+        [1278] = { -- Level 50 Scholar
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SCH, 75 } },
+            reqs = { jobLvl = { tpz.job.SCH, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {3209, 4} } },
         },
 
-        [1279] = { -- Level 99 Scholar
+        [1279] = { -- Level 75 Scholar
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.SCH, 99 } },
+            reqs = { jobLvl = { tpz.job.SCH, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4068, 2} } },
         },
 
-        [1280] = { -- Level 30 Geomancer
+        [1280] = { -- Level 18 Geomancer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.GEO, 30 } },
+            reqs = { jobLvl = { tpz.job.GEO, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6178, 12} } },
         },
 
-        [1281] = { -- Level 50 Geomancer
+        [1281] = { -- Level 37 Geomancer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.GEO, 50 } },
+            reqs = { jobLvl = { tpz.job.GEO, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6179, 12} } },
         },
 
-        [1282] = { -- Level 75 Geomancer
+        [1282] = { -- Level 50 Geomancer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.GEO, 75 } },
+            reqs = { jobLvl = { tpz.job.GEO, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {6092, 1} } },
         },
 
-        [1283] = { -- Level 99 Geomancer
+        [1283] = { -- Level 75 Geomancer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.GEO, 99 } },
+            reqs = { jobLvl = { tpz.job.GEO, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4069, 1} } },
         },
 
-        [1284] = { -- Level 30 Runefencer
+        [1284] = { -- Level 18 Runefencer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RUN, 30 } },
+            reqs = { jobLvl = { tpz.job.RUN, 18 } },
             flags = set{"retro"},
             reward = { sparks = 100, xp = 500, item = { {6150, 12} } },
         },
 
-        [1285] = { -- Level 50 Runefencer
+        [1285] = { -- Level 37 Runefencer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RUN, 50 } },
+            reqs = { jobLvl = { tpz.job.RUN, 37 } },
             flags = set{"retro"},
             reward = { sparks = 200, xp = 500, item = { {6149, 12} } },
         },
 
-        [1286] = { -- Level 75 Runefencer
+        [1286] = { -- Level 50 Runefencer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RUN, 75 } },
+            reqs = { jobLvl = { tpz.job.RUN, 50 } },
             flags = set{"retro"},
             reward = { sparks = 300, xp = 500, item = { {5103, 1} } },
         },
 
-        [1287] = { -- Level 99 Runefencer
+        [1287] = { -- Level 75 Runefencer
             trigger = triggers.levelUp,
-            reqs = { jobLvl = { tpz.job.RUN, 99 } },
+            reqs = { jobLvl = { tpz.job.RUN, 75 } },
             flags = set{"retro"},
             reward = { sparks = 400, xp = 500, item = { {4070, 1} } },
         },
@@ -4417,10 +4417,10 @@ function getRoeRecords(triggers)
             reward = { sparks = 300, xp = 1500, unity = 300, item = { 8711 } },
         },
 
-        [4084] = { -- Heal for 500+ HP (D)
+        [4084] = { -- Heal for 100+ HP (D)
             trigger = triggers.healAlly,
             goal = 100,
-            reqs = { healMin = 500 },
+            reqs = { healMin = 100 },
             flags = set{"daily"},
             reward = { sparks = 300, xp = 1500, unity = 300, item = { 8711 } },
         },
@@ -4472,17 +4472,10 @@ function getRoeRecords(triggers)
 
         [4013] = { -- Gain Experience
             trigger = triggers.expGain,
-            goal = 5000,
-            increment = 0,
+            goal = 30,
+            increment = 1,
             flags = set{"timed", "repeat"},
             reward = { sparks = 300, xp = 1500, unity = 300, item = { 8711 } },
-            check = function(self, player, params)
-                    if params.exp and params.exp > 0 then
-                        params.progress = params.progress + params.exp
-                        return true
-                    end
-                    return false
-                end,
         },
 
         [4014] = {   -- Spoils (Seals)
