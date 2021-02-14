@@ -35,8 +35,8 @@ entity.onTrigger = function(player, npc)
         player:startEvent(138)
     elseif (questStatus == QUEST_ACCEPTED) then
         local VeraOldLadyVar = player:getCharVar("VeraOldLadyVar")
-        if player:hasKeyItem(tpz.ki.GILGAMESHS_INTRODUCTORY_LETTER) then
-            player:startEvent(137)
+        -- if player:hasKeyItem(tpz.ki.GILGAMESHS_INTRODUCTORY_LETTER) then
+        --     player:startEvent(137)
         elseif (VeraOldLadyVar == 1) then
             player:startEvent(132, 542)
         elseif (VeraOldLadyVar == 2) then
