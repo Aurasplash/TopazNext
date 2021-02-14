@@ -608,6 +608,41 @@ namespace charutils
             PChar->jobs.job[JOB_RUN] = (uint8)Sql_GetIntData(SqlHandle, 23);
         }
 
+        // Aurora Relevel System
+        fmtQuery =
+            "SELECT deathcount, levelslost, war, mnk, whm, blm, rdm, thf, pld, drk, bst, brd, rng, sam, nin, drg, smn, blu, cor, pup, dnc, sch, geo, run "
+            "FROM char_deaths "
+            "WHERE charid = %u;";
+        ret = Sql_Query(SqlHandle, fmtQuery, PChar->id);
+        if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+        {
+            PChar->jobs.deathcount      = (uint32)Sql_GetUIntData(SqlHandle, 0);
+            PChar->jobs.levelslost      = (uint8)Sql_GetUIntData(SqlHandle, 1);
+            PChar->jobs.deaths[JOB_WAR] = (uint8)Sql_GetIntData(SqlHandle, 2);
+            PChar->jobs.deaths[JOB_MNK] = (uint8)Sql_GetIntData(SqlHandle, 3);
+            PChar->jobs.deaths[JOB_WHM] = (uint8)Sql_GetIntData(SqlHandle, 4);
+            PChar->jobs.deaths[JOB_BLM] = (uint8)Sql_GetIntData(SqlHandle, 5);
+            PChar->jobs.deaths[JOB_RDM] = (uint8)Sql_GetIntData(SqlHandle, 6);
+            PChar->jobs.deaths[JOB_THF] = (uint8)Sql_GetIntData(SqlHandle, 7);
+            PChar->jobs.deaths[JOB_PLD] = (uint8)Sql_GetIntData(SqlHandle, 8);
+            PChar->jobs.deaths[JOB_DRK] = (uint8)Sql_GetIntData(SqlHandle, 9);
+            PChar->jobs.deaths[JOB_BST] = (uint8)Sql_GetIntData(SqlHandle, 10);
+            PChar->jobs.deaths[JOB_BRD] = (uint8)Sql_GetIntData(SqlHandle, 11);
+            PChar->jobs.deaths[JOB_RNG] = (uint8)Sql_GetIntData(SqlHandle, 12);
+            PChar->jobs.deaths[JOB_SAM] = (uint8)Sql_GetIntData(SqlHandle, 13);
+            PChar->jobs.deaths[JOB_NIN] = (uint8)Sql_GetIntData(SqlHandle, 14);
+            PChar->jobs.deaths[JOB_DRG] = (uint8)Sql_GetIntData(SqlHandle, 15);
+            PChar->jobs.deaths[JOB_SMN] = (uint8)Sql_GetIntData(SqlHandle, 16);
+            PChar->jobs.deaths[JOB_BLU] = (uint8)Sql_GetIntData(SqlHandle, 17);
+            PChar->jobs.deaths[JOB_COR] = (uint8)Sql_GetIntData(SqlHandle, 18);
+            PChar->jobs.deaths[JOB_PUP] = (uint8)Sql_GetIntData(SqlHandle, 19);
+            PChar->jobs.deaths[JOB_DNC] = (uint8)Sql_GetIntData(SqlHandle, 20);
+            PChar->jobs.deaths[JOB_SCH] = (uint8)Sql_GetIntData(SqlHandle, 21);
+            PChar->jobs.deaths[JOB_GEO] = (uint8)Sql_GetIntData(SqlHandle, 22);
+            PChar->jobs.deaths[JOB_RUN] = (uint8)Sql_GetIntData(SqlHandle, 23);
+        }
+        // Aurora End Relevel System
+
         fmtQuery = "SELECT mode, war, mnk, whm, blm, rdm, thf, pld, drk, bst, brd, rng, sam, nin, drg, smn, blu, cor, pup, dnc, sch, geo, run, merits, limits "
                    "FROM char_exp "
                    "WHERE charid = %u;";
@@ -3830,6 +3865,21 @@ namespace charutils
                             }
                         }
                     }
+
+                    // Aurora Relevel System: Bonus EXP
+                    if (PMember->jobs.job[PMember->GetMJob()] < PMember->jobs.deaths[PMember->GetMJob()])
+                    {
+                        if (PMember->jobs.deaths[PMember->GetMJob()] == 75)
+                        {
+                            exp *= 10;
+                        }
+                        else
+                        {
+                            exp = exp + ((exp * PMember->jobs.deaths[PMember->GetMJob()]) / 10);
+                        }
+                    }
+                    // Aurora End Relevel System: Bonus EXP
+
                     // pet or companion exp penalty needs to be added here
                     if (distance(PMember->loc.p, PMob->loc.p) > 100)
                     {
@@ -3857,88 +3907,48 @@ namespace charutils
         TPZ_DEBUG_BREAK_IF(retainPercent > 1.0f || retainPercent < 0.0f);
         TPZ_DEBUG_BREAK_IF(map_config.exp_loss_level > 99 || map_config.exp_loss_level < 1);
 
-        if (PChar->GetMLevel() < map_config.exp_loss_level && forcedXpLoss == 0)
+        PChar->jobs.deathcount += 1; // Aurora Relevel Death Tracker
+
+        // Aurora Hardcore Death System
+        PChar->jobs.levelslost += (PChar->jobs.job[PChar->GetMJob()] - 1);
+
+        if (PChar->jobs.job[PChar->GetMJob()] > PChar->jobs.deaths[PChar->GetMJob()])
         {
-            return;
+            PChar->jobs.deaths[PChar->GetMJob()] = PChar->jobs.job[PChar->GetMJob()];
         }
 
-        uint8  mLevel  = (PChar->m_LevelRestriction != 0 && PChar->m_LevelRestriction < PChar->GetMLevel()) ? PChar->m_LevelRestriction : PChar->GetMLevel();
-        uint16 exploss = mLevel <= 67 ? (GetExpNEXTLevel(mLevel) * 8) / 100 : 2400;
+        PChar->jobs.job[PChar->GetMJob()] = 1;
 
-        if (forcedXpLoss > 0)
-        {
-            // Override normal XP loss with specified value.
-            exploss = forcedXpLoss;
-        }
-        else
-        {
-            // Apply retention percent
-            exploss = (uint16)(exploss * (1 - retainPercent));
-            exploss = (uint16)(exploss * map_config.exp_loss_rate);
-        }
+        PChar->jobs.exp[PChar->GetMJob()] = 0;
 
-        if (PChar->jobs.exp[PChar->GetMJob()] < exploss)
-        {
-            if (PChar->jobs.job[PChar->GetMJob()] > 1)
-            {
-                // de-level!
-                int32 lowerLevelMaxExp = GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()] - 1);
-                exploss -= PChar->jobs.exp[PChar->GetMJob()];
-                PChar->jobs.exp[PChar->GetMJob()] = std::max(0, lowerLevelMaxExp - exploss);
-                PChar->jobs.job[PChar->GetMJob()] -= 1;
+        BuildingCharSkillsTable(PChar);
+        CalculateStats(PChar);
+        CheckValidEquipment(PChar);
 
-                if (PChar->m_LevelRestriction == 0 || PChar->jobs.job[PChar->GetMJob()] < PChar->m_LevelRestriction)
-                {
-                    PChar->SetMLevel(PChar->jobs.job[PChar->GetMJob()]);
-                    PChar->SetSLevel(PChar->jobs.job[PChar->GetSJob()]);
-                }
+        BuildingCharAbilityTable(PChar);
+        BuildingCharTraitsTable(PChar);
+        BuildingCharWeaponSkills(PChar);
 
-                BuildingCharSkillsTable(PChar);
-                CalculateStats(PChar);
-                CheckValidEquipment(PChar);
+        PChar->pushPacket(new CCharJobsPacket(PChar));
+        PChar->pushPacket(new CCharUpdatePacket(PChar));
+        PChar->pushPacket(new CCharSkillsPacket(PChar));
+        PChar->pushPacket(new CCharRecastPacket(PChar));
+        PChar->pushPacket(new CCharAbilitiesPacket(PChar));
+        PChar->pushPacket(new CMenuMeritPacket(PChar));
+        PChar->pushPacket(new CCharJobExtraPacket(PChar, true));
+        PChar->pushPacket(new CCharJobExtraPacket(PChar, false));
+        PChar->pushPacket(new CCharSyncPacket(PChar));
 
-                BuildingCharAbilityTable(PChar);
-                BuildingCharTraitsTable(PChar);
-                BuildingCharWeaponSkills(PChar);
+        PChar->UpdateHealth();
 
-                PChar->pushPacket(new CCharJobsPacket(PChar));
-                PChar->pushPacket(new CCharUpdatePacket(PChar));
-                PChar->pushPacket(new CCharSkillsPacket(PChar));
-                PChar->pushPacket(new CCharRecastPacket(PChar));
-                PChar->pushPacket(new CCharAbilitiesPacket(PChar));
-                PChar->pushPacket(new CMenuMeritPacket(PChar));
-                PChar->pushPacket(new CCharJobExtraPacket(PChar, true));
-                PChar->pushPacket(new CCharJobExtraPacket(PChar, false));
-                PChar->pushPacket(new CCharSyncPacket(PChar));
+        SaveCharStats(PChar);
+        SaveCharJob(PChar, PChar->GetMJob());
 
-                PChar->UpdateHealth();
+        PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageCombatPacket(PChar, PChar, PChar->jobs.job[PChar->GetMJob()], 0, 11));
+        luautils::OnPlayerLevelDown(PChar);
+        PChar->updatemask |= UPDATE_HP;
 
-                SaveCharStats(PChar);
-                SaveCharJob(PChar, PChar->GetMJob());
-
-                if (PChar->PParty != nullptr)
-                {
-                    if (PChar->PParty->GetSyncTarget() == PChar)
-                    {
-                        PChar->PParty->RefreshSync();
-                    }
-                    PChar->PParty->ReloadParty();
-                }
-
-                PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CMessageCombatPacket(PChar, PChar, PChar->jobs.job[PChar->GetMJob()], 0, 11));
-                luautils::OnPlayerLevelDown(PChar);
-                PChar->updatemask |= UPDATE_HP;
-            }
-            else
-            {
-                PChar->jobs.exp[PChar->GetMJob()] = 0;
-            }
-        }
-        else
-        {
-            PChar->jobs.exp[PChar->GetMJob()] -= exploss;
-        }
-
+        SaveCharDeaths(PChar, PChar->GetMJob());
         SaveCharExp(PChar, PChar->GetMJob());
         PChar->pushPacket(new CCharStatsPacket(PChar));
     }
@@ -4659,6 +4669,95 @@ namespace charutils
             PChar->updatemask |= UPDATE_HP;
             SaveMenuConfigFlags(PChar);
         }
+    }
+
+    /************************************************************************
+     *                                                                       *
+     *  Aurora Save Deaths for Relevel System                                *
+     *                                                                       *
+     ************************************************************************/
+
+    void SaveCharDeaths(CCharEntity* PChar, JOBTYPE job)
+    {
+        TPZ_DEBUG_BREAK_IF(job == JOB_NON || job >= MAX_JOBTYPE);
+
+        const char* Query = "UPDATE char_deaths SET %s = %u, deathcount = %u, levelslost = %u WHERE charid = %u";
+
+        std::string jobstring;
+
+        switch (job)
+        {
+            case JOB_WAR:
+                jobstring = "war";
+                break;
+            case JOB_MNK:
+                jobstring = "mnk";
+                break;
+            case JOB_WHM:
+                jobstring = "whm";
+                break;
+            case JOB_BLM:
+                jobstring = "blm";
+                break;
+            case JOB_RDM:
+                jobstring = "rdm";
+                break;
+            case JOB_THF:
+                jobstring = "thf";
+                break;
+            case JOB_PLD:
+                jobstring = "pld";
+                break;
+            case JOB_DRK:
+                jobstring = "drk";
+                break;
+            case JOB_BST:
+                jobstring = "bst";
+                break;
+            case JOB_BRD:
+                jobstring = "brd";
+                break;
+            case JOB_RNG:
+                jobstring = "rng";
+                break;
+            case JOB_SAM:
+                jobstring = "sam";
+                break;
+            case JOB_NIN:
+                jobstring = "nin";
+                break;
+            case JOB_DRG:
+                jobstring = "drg";
+                break;
+            case JOB_SMN:
+                jobstring = "smn";
+                break;
+            case JOB_BLU:
+                jobstring = "blu";
+                break;
+            case JOB_COR:
+                jobstring = "cor";
+                break;
+            case JOB_PUP:
+                jobstring = "pup";
+                break;
+            case JOB_DNC:
+                jobstring = "dnc";
+                break;
+            case JOB_SCH:
+                jobstring = "sch";
+                break;
+            case JOB_GEO:
+                jobstring = "geo";
+                break;
+            case JOB_RUN:
+                jobstring = "run";
+                break;
+            default:
+                return;
+                break;
+        }
+        Sql_Query(SqlHandle, Query, jobstring, PChar->jobs.deaths[job], PChar->jobs.deathcount, PChar->jobs.levelslost, PChar->id);
     }
 
     /************************************************************************
