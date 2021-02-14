@@ -43,13 +43,13 @@ entity.onTrigger = function(player, npc)
         player:startEvent(10045, 75, 2, 10, 7, 30, 302895, 4095)
     elseif (player:getMainLvl() == 75 and player:getLevelCap() == 75 and MAX_LEVEL >= 80 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.NEW_WORLDS_AWAIT) == QUEST_AVAILABLE) then
         player:startEvent(10045, 0, 1, 1, 0)
-    elseif (player:getMainLvl() >= 76 and player:getLevelCap() == 80 and MAX_LEVEL >= 85 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.EXPANDING_HORIZONS) == QUEST_AVAILABLE) then
+    elseif (player:getMainLvl() >= 75 and player:getLevelCap() == 75 and MAX_LEVEL >= 85 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.EXPANDING_HORIZONS) == QUEST_AVAILABLE) then
         player:startEvent(10045, 0, 1, 2, 0)
-    elseif (player:getMainLvl() >= 81 and player:getLevelCap() == 85 and MAX_LEVEL >= 90 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.BEYOND_THE_STARS) == QUEST_AVAILABLE) then
+    elseif (player:getMainLvl() >= 75 and player:getLevelCap() == 75 and MAX_LEVEL >= 90 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.BEYOND_THE_STARS) == QUEST_AVAILABLE) then
         player:startEvent(10045, 0, 1, 3, 0)
-    elseif (player:getMainLvl() >= 86 and player:getLevelCap() == 90 and MAX_LEVEL >= 95 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.DORMANT_POWERS_DISLODGED) == QUEST_AVAILABLE) then
+    elseif (player:getMainLvl() >= 75 and player:getLevelCap() == 75 and MAX_LEVEL >= 95 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.DORMANT_POWERS_DISLODGED) == QUEST_AVAILABLE) then
         player:startEvent(10045, 0, 1, 4, 0)
-    elseif (player:getMainLvl() >= 91 and player:getLevelCap() == 95 and MAX_LEVEL == 99 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.PRELUDE_TO_PUISSANCE) == QUEST_AVAILABLE) then
+    elseif (player:getMainLvl() >= 75 and player:getLevelCap() == 75 and MAX_LEVEL == 99 and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.PRELUDE_TO_PUISSANCE) == QUEST_AVAILABLE) then
         player:startEvent(10194)
     elseif player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.PRELUDE_TO_PUISSANCE) == QUEST_COMPLETED and player:getQuestStatus(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.BEYOND_INFINITY) == QUEST_AVAILABLE and player:getLocalVar("MaybeAnotherTimeCS") == 1 then
         player:startEvent(10045, 0, 1, 5, 0, 1)
@@ -166,31 +166,31 @@ entity.onEventFinish = function(player, csid, option)
         player:tradeComplete()
         player:setMerits(meritCount - 3)
         player:addFame(JEUNO, 50)
-        player:setLevelCap(80)
+        player:setLevelCap(75)
         player:completeQuest(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.NEW_WORLDS_AWAIT)
-        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_80)
+        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_75)
     elseif (csid == 10136) then
         player:tradeComplete()
         player:setMerits(meritCount - 4)
         player:addFame(JEUNO, 50)
-        player:setLevelCap(85)
+        player:setLevelCap(75)
         player:completeQuest(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.EXPANDING_HORIZONS)
-        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_85)
+        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_75)
     elseif (csid == 10137) then
         player:tradeComplete()
         player:setMerits(meritCount - 5)
         player:startEvent(10161) -- this is the scene that is suppose to play and you are suppose to have to do correctly inorder to level cap increase to 90
         player:addFame(JEUNO, 50)
-        player:setLevelCap(90)
+        player:setLevelCap(75)
         player:completeQuest(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.BEYOND_THE_STARS)
-        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_90)
+        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_75)
     elseif (csid == 10138) then
         player:tradeComplete()
         player:setMerits(meritCount - 10)
         player:addFame(JEUNO, 50)
-        player:setLevelCap(95)
+        player:setLevelCap(75)
         player:completeQuest(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.DORMANT_POWERS_DISLODGED)
-        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_95)
+        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_75)
         player:addKeyItem(tpz.ki.SOUL_GEM)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SOUL_GEM)
     elseif csid == 10139 then
@@ -198,8 +198,8 @@ entity.onEventFinish = function(player, csid, option)
             title = tpz.title.BUSHIN_ASPIRANT,
             var = "BeyondInfinityCS"
         })
-        player:setLevelCap(99)
-        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_99)
+        player:setLevelCap(75)
+        player:messageSpecial(ID.text.YOUR_LEVEL_LIMIT_IS_NOW_75)
     elseif csid == 10194 then
         player:addQuest(tpz.quest.log_id.JEUNO, tpz.quest.id.jeuno.PRELUDE_TO_PUISSANCE)
 
