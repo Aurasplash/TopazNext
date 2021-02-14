@@ -61,10 +61,10 @@ local regimeInfo = {
             [  3] = {act = "CANCEL_REGIME",   cost =  0, discounted =  0},
             [ 21] = {act = "REPATRIATION",    cost = 50, discounted = 10},
             [ 37] = {act = "RERAISE",         cost = 10, discounted =  5},
-            [ 53] = {act = "REGEN",           cost = 20, discounted = 10},
-            [ 69] = {act = "REFRESH",         cost = 20, discounted = 10},
-            [ 85] = {act = "PROTECT",         cost = 15, discounted =  5},
-            [101] = {act = "SHELL",           cost = 15, discounted =  5},
+            -- [ 53] = {act = "REGEN",           cost = 20, discounted = 10},
+            -- [ 69] = {act = "REFRESH",         cost = 20, discounted = 10},
+            -- [ 85] = {act = "PROTECT",         cost = 15, discounted =  5},
+            -- [101] = {act = "SHELL",           cost = 15, discounted =  5},
             [117] = {act = "DRIED_MEAT",      cost = 50, discounted = 25, food = true},
             [133] = {act = "SALTED_FISH",     cost = 50, discounted = 25, food = true},
             [149] = {act = "HARD_COOKIE",     cost = 50, discounted = 25, food = true},
@@ -472,16 +472,16 @@ local regimeInfo = {
         {
             [  3] = {act = "CANCEL_REGIME",   cost =  0, discounted =  0},
             [ 20] = {act = "REPATRIATION",    cost = 50, discounted = 10},
-            [ 36] = {act = "CIRCUMSPECTION",  cost =  5, discounted =  5},
+            -- [ 36] = {act = "CIRCUMSPECTION",  cost =  5, discounted =  5},
             [ 52] = {act = "HOMING_INSTINCT", cost = 50, discounted = 25},
             [ 68] = {act = "RERAISE",         cost = 10, discounted =  5},
-            [ 84] = {act = "RERAISE_II",      cost = 20, discounted = 10},
-            [100] = {act = "RERAISE_III",     cost = 30, discounted = 15},
-            [116] = {act = "REGEN",           cost = 20, discounted = 10},
-            [132] = {act = "REFRESH",         cost = 20, discounted = 10},
-            [148] = {act = "PROTECT",         cost = 15, discounted =  5},
-            [164] = {act = "SHELL",           cost = 15, discounted =  5},
-            [180] = {act = "HASTE",           cost = 20, discounted = 10},
+            -- [ 84] = {act = "RERAISE_II",      cost = 20, discounted = 10},
+            -- [100] = {act = "RERAISE_III",     cost = 30, discounted = 15},
+            -- [116] = {act = "REGEN",           cost = 20, discounted = 10},
+            -- [132] = {act = "REFRESH",         cost = 20, discounted = 10},
+            -- [148] = {act = "PROTECT",         cost = 15, discounted =  5},
+            -- [164] = {act = "SHELL",           cost = 15, discounted =  5},
+            -- [180] = {act = "HASTE",           cost = 20, discounted = 10},
             [196] = {act = "DRIED_MEAT",      cost = 50, discounted = 25, food = true},
             [212] = {act = "SALTED_FISH",     cost = 50, discounted = 25, food = true},
             [228] = {act = "HARD_COOKIE",     cost = 50, discounted = 25, food = true},
@@ -1030,8 +1030,8 @@ local function addGovProwessBonusEffect(player)
         end
 
         -- set effect
-        player:addStatusEffectEx(p.effect, 0, power, 0, 0)
-        player:messageBasic(p.effect - 168)
+        -- player:addStatusEffectEx(p.effect, 0, power, 0, 0)
+        -- player:messageBasic(p.effect - 168)
     end
 end
 
@@ -1369,7 +1369,7 @@ tpz.regime.checkRegime = function(player, mob, regimeId, index, regimeType)
 
             -- increment clears
             player:delStatusEffectSilent(tpz.effect.PROWESS)
-            player:addStatusEffect(tpz.effect.PROWESS, govClears + 1, 0, 0)
+            -- player:addStatusEffect(tpz.effect.PROWESS, govClears + 1, 0, 0)
 
         else
             -- keep track of number of clears
@@ -1381,8 +1381,8 @@ tpz.regime.checkRegime = function(player, mob, regimeId, index, regimeType)
     local vanadielEpoch = vanaDay()
     if REGIME_WAIT == 0 or player:getCharVar("[regime]lastReward") < vanadielEpoch then
         -- gil
-        player:addGil(reward)
-        player:messageBasic(tpz.msg.basic.FOV_OBTAINS_GIL, reward)
+        -- player:addGil(reward)
+        -- player:messageBasic(tpz.msg.basic.FOV_OBTAINS_GIL, reward)
 
         -- tabs
         local tabs = math.floor(reward / 10) * TABS_RATE
@@ -1394,10 +1394,10 @@ tpz.regime.checkRegime = function(player, mob, regimeId, index, regimeType)
     end
 
     -- award XP every page completion
-    player:addExp(reward)
+    -- player:addExp(reward)
 
     -- repeating regimes
-    if player:getCharVar("[regime]repeat") == 1 then
+    if player:getCharVar("[regime]repeat") == 2 then
         for i = 1, 4 do
             player:setCharVar("[regime]killed" .. i, 0)
         end
