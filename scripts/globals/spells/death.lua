@@ -20,7 +20,12 @@ spell_object.onSpellCast = function(caster, target, spell)
         return 0
     end
 
-    target:setHP(0)
+    local typeEffect = tpz.effect.DOOM
+
+    spell:setMsg(MobStatusEffectMove(caster, target, typeEffect, 10, 3, 10))
+
+    return typeEffect
+
     return 0
 end
 
