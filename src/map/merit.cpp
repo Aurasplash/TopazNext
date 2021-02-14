@@ -267,7 +267,7 @@ void CMeritPoints::SaveMeritPoints(uint32 charid)
  *                                                                       *
  ************************************************************************/
 
-uint16 CMeritPoints::GetLimitPoints() const
+uint32 CMeritPoints::GetLimitPoints() const
 {
     return m_LimitPoints;
 }
