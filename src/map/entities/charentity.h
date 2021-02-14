@@ -48,6 +48,9 @@ struct jobs_t
     uint8  job[MAX_JOBTYPE]; // the current levels of each of the jobs from above
     uint32 exp[MAX_JOBTYPE]; // the experience points for each of the jobs above
     uint8  genkai;           // the maximum genkai level achieved
+    uint8  deaths[MAX_JOBTYPE]; // Aurora Releveling System
+    uint32 deathcount;          // Aurora Releveling System
+    uint32 levelslost;          // Aurora Releveling System
 };
 
 struct event_t

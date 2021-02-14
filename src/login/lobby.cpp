@@ -922,5 +922,11 @@ int32 lobby_createchar_save(uint32 accid, uint32 charid, char_mini* createchar)
         return -1;
     }
 
+    // Aurora Releveling System
+    Query = "INSERT INTO char_deaths(charid) VALUES(%u) \
+            ON DUPLICATE KEY UPDATE charid = charid;";
+    if (Sql_Query(SqlHandle, Query, charid, createchar->m_mjob) == SQL_ERROR)
+        return -1;
+
     return 0;
 }
