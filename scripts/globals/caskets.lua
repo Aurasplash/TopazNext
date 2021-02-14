@@ -173,9 +173,9 @@ local function dropChance(player)
     --     kupowersMMBPower = kupowerMMBEffect:getPower()
     --end
 
-    if player:hasStatusEffect(tpz.effect.PROWESS_CASKET_RATE) then
-        prowessCasketsPower = casketProwessEffect:getPower()
-    end
+    -- if player:hasStatusEffect(tpz.effect.PROWESS_CASKET_RATE) then
+    --     prowessCasketsPower = casketProwessEffect:getPower()
+    -- end
 
     local rand = math.random()
     if rand < utils.clamp(CASKET_DROP_RATE + kupowersMMBPower + prowessCasketsPower, 0, 1) then
@@ -229,7 +229,7 @@ local function setCasketData(player, x, y, z, r, npc, partyID, mobLvl)
     --     kupowersBonus = 0.2
     -- end
 
-    if typeChance < 0.2 + kupowersBonus then
+    if typeChance < 0.20 + kupowersBonus then
         chestStyle = 966 -- Brown locked
     else
         chestStyle = 965 -- Blue
