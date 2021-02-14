@@ -57,7 +57,7 @@ INSERT INTO `mob_pool_mods` VALUES (268,368,150,0);
 INSERT INTO `mob_pool_mods` VALUES (268,370,50,0);
 INSERT INTO `mob_pool_mods` VALUES (276,12,1,1);
 INSERT INTO `mob_pool_mods` VALUES (289,4,4,1);
-INSERT INTO `mob_pool_mods` VALUES (370,28,5,1);
+-- INSERT INTO `mob_pool_mods` VALUES (370,28,5,1); --Battle_Bugard EXP +5%
 INSERT INTO `mob_pool_mods` VALUES (410,236,20,0);
 INSERT INTO `mob_pool_mods` VALUES (444,23,23,1); -- Bladmall immune to Sleep, Bind, Silence and Gravity.
 INSERT INTO `mob_pool_mods` VALUES (459,23,50,0); -- (Bloodlapper) Attack
@@ -75,25 +75,25 @@ INSERT INTO `mob_pool_mods` VALUES (680,31,200,0); -- (Cerberus) 120 magic evasi
 INSERT INTO `mob_pool_mods` VALUES (680,251,-50,0); -- (Cerberus) he shouldn't be so resistant to stun, tho this is a systemic stun problem, this is a hack
 INSERT INTO `mob_pool_mods` VALUES (681,368,10,0);
 INSERT INTO `mob_pool_mods` VALUES (733,302,5,0);
-INSERT INTO `mob_pool_mods` VALUES (768,28,5,1);
+INSERT INTO `mob_pool_mods` VALUES (768,28,10,1); -- Colorful_Treant EXP +10%
 INSERT INTO `mob_pool_mods` VALUES (770,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (820,368,10,0);
 INSERT INTO `mob_pool_mods` VALUES (906,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (912,12,25,1);
 INSERT INTO `mob_pool_mods` VALUES (930,370,15,0);
-INSERT INTO `mob_pool_mods` VALUES (955,28,-100,1); -- Defender EXP_BONUS: don't give XP
-INSERT INTO `mob_pool_mods` VALUES (958,28,5,1);
-INSERT INTO `mob_pool_mods` VALUES (978,28,23,1);
+-- INSERT INTO `mob_pool_mods` VALUES (955,28,-100,1); -- Defender EXP_BONUS: don't give XP
+-- INSERT INTO `mob_pool_mods` VALUES (958,28,5,1); -- Defoliate_Treant EXP +23%
+-- INSERT INTO `mob_pool_mods` VALUES (978,28,23,1); -- Demonic_Rose EXP +23%
 INSERT INTO `mob_pool_mods` VALUES (979,8,60,1);
 INSERT INTO `mob_pool_mods` VALUES (979,9,60,1);
-INSERT INTO `mob_pool_mods` VALUES (1013,28,-100,1); -- Detector EXP_BONUS: don't give XP
+-- INSERT INTO `mob_pool_mods` VALUES (1013,28,-100,1); -- Detector EXP_BONUS: don't give XP
 INSERT INTO `mob_pool_mods` VALUES (1027,12,1,1);
 INSERT INTO `mob_pool_mods` VALUES (1178,163,-100,0);
 INSERT INTO `mob_pool_mods` VALUES (1234,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (1270,39,-1,1);
 INSERT INTO `mob_pool_mods` VALUES (1280,368,70,0);
 INSERT INTO `mob_pool_mods` VALUES (1306,4,30,1);
-INSERT INTO `mob_pool_mods` VALUES (1429,28,10,1);
+-- INSERT INTO `mob_pool_mods` VALUES (1429,28,10,1); -- Frostmane EXP +10%
 INSERT INTO `mob_pool_mods` VALUES (1456,368,20,0);
 INSERT INTO `mob_pool_mods` VALUES (1461,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (1491,3,100,1);
@@ -104,8 +104,8 @@ INSERT INTO `mob_pool_mods` VALUES (1719,29,2,1);
 INSERT INTO `mob_pool_mods` VALUES (1750,56,1,1);
 INSERT INTO `mob_pool_mods` VALUES (1754,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (1792,368,70,0);
-INSERT INTO `mob_pool_mods` VALUES (1806,28,10,1);
-INSERT INTO `mob_pool_mods` VALUES (1841,28,10,1);
+-- INSERT INTO `mob_pool_mods` VALUES (1806,28,10,1); -- Greater_Manticore EXP +10%
+-- INSERT INTO `mob_pool_mods` VALUES (1841,28,10,1); -- Guivre EXP +10%
 INSERT INTO `mob_pool_mods` VALUES (2032,244,15,0);
 INSERT INTO `mob_pool_mods` VALUES (2032,34,20,1);
 INSERT INTO `mob_pool_mods` VALUES (2032,35,0,1);
@@ -124,7 +124,7 @@ INSERT INTO `mob_pool_mods` VALUES (2265,370,50,0);
 INSERT INTO `mob_pool_mods` VALUES (2271,64,15,0);
 INSERT INTO `mob_pool_mods` VALUES (2271,65,15,0);
 INSERT INTO `mob_pool_mods` VALUES (2271,165,15,0);
-INSERT INTO `mob_pool_mods` VALUES (2314,28,23,1);
+-- INSERT INTO `mob_pool_mods` VALUES (2314,28,23,1); -- Ladon EXP +23%
 INSERT INTO `mob_pool_mods` VALUES (2420,302,10,0);
 INSERT INTO `mob_pool_mods` VALUES (2461,61,25,1);
 INSERT INTO `mob_pool_mods` VALUES (2462,61,25,1);
@@ -136,7 +136,7 @@ INSERT INTO `mob_pool_mods` VALUES (2664,12,1,1);
 INSERT INTO `mob_pool_mods` VALUES (2675,4,25,1);
 INSERT INTO `mob_pool_mods` VALUES (2677,288,55,0);
 INSERT INTO `mob_pool_mods` VALUES (2742,37,1,1);
-INSERT INTO `mob_pool_mods` VALUES (2745,28,23,1);
+-- INSERT INTO `mob_pool_mods` VALUES (2745,28,23,1); -- Morbol_Menace EXP +23%
 INSERT INTO `mob_pool_mods` VALUES (2748,370,5,0);
 INSERT INTO `mob_pool_mods` VALUES (2790,168,50,0);
 INSERT INTO `mob_pool_mods` VALUES (2790,240,7,0);
@@ -150,7 +150,7 @@ INSERT INTO `mob_pool_mods` VALUES (3051,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (3099,23,23,1); -- Parata immune to Sleep, Bind, Silence and Gravity.
 INSERT INTO `mob_pool_mods` VALUES (3124,48,434,1);
 INSERT INTO `mob_pool_mods` VALUES (3129,370,50,0);
-INSERT INTO `mob_pool_mods` VALUES (3168,28,10,1);
+INSERT INTO `mob_pool_mods` VALUES (3168,28,10,1); -- Polar_Hare EXP +10%
 INSERT INTO `mob_pool_mods` VALUES (3208,370,20,0);
 INSERT INTO `mob_pool_mods` VALUES (3245,56,1,1);
 INSERT INTO `mob_pool_mods` VALUES (3252,56,1,1);
@@ -166,7 +166,7 @@ INSERT INTO `mob_pool_mods` VALUES (3549,370,50,0);
 INSERT INTO `mob_pool_mods` VALUES (3598,368,70,0);
 INSERT INTO `mob_pool_mods` VALUES (3600,368,70,0);
 INSERT INTO `mob_pool_mods` VALUES (3601,368,70,0);
-INSERT INTO `mob_pool_mods` VALUES (3667,28,-100,1);
+-- INSERT INTO `mob_pool_mods` VALUES (3667,28,-100,1); -- Slave_Globe EXP_BONUS: don't give XP
 INSERT INTO `mob_pool_mods` VALUES (3759,163,-100,0);
 INSERT INTO `mob_pool_mods` VALUES (3781,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (3784,2,-1,1); -- Stray GIL_MAX: don't drop gil
@@ -174,7 +174,7 @@ INSERT INTO `mob_pool_mods` VALUES (3784,28,-100,1); -- Stray EXP_BONUS: don't g
 INSERT INTO `mob_pool_mods` VALUES (3796,21,97,1);
 INSERT INTO `mob_pool_mods` VALUES (3816,3,100,1);
 INSERT INTO `mob_pool_mods` VALUES (3824,29,2,1);
-INSERT INTO `mob_pool_mods` VALUES (3853,28,23,1);
+-- INSERT INTO `mob_pool_mods` VALUES (3853,28,23,1); -- Tavnazian_Ram EXP +23%
 INSERT INTO `mob_pool_mods` VALUES (3916,29,50,0);
 INSERT INTO `mob_pool_mods` VALUES (3916,164,-50,0);
 INSERT INTO `mob_pool_mods` VALUES (3916,370,25,0);
@@ -196,7 +196,7 @@ INSERT INTO `mob_pool_mods` VALUES (4189,34,20,1);
 INSERT INTO `mob_pool_mods` VALUES (4189,35,0,1);
 INSERT INTO `mob_pool_mods` VALUES (4204,28,10,1); -- (Variable Hare) 10% XP bonus
 INSERT INTO `mob_pool_mods` VALUES (4222,4,4,1);
-INSERT INTO `mob_pool_mods` VALUES (4238,28,5,1); -- (Virulent Peiste) 5% XP bonus
+-- INSERT INTO `mob_pool_mods` VALUES (4238,28,5,1); -- (Virulent Peiste) 5% XP bonus
 INSERT INTO `mob_pool_mods` VALUES (4261,29,50,0);
 INSERT INTO `mob_pool_mods` VALUES (4261,370,25,0);
 INSERT INTO `mob_pool_mods` VALUES (4361,288,55,0);
