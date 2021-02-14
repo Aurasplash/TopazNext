@@ -6158,16 +6158,12 @@ void CLuaBaseEntity::delExp(uint32 exp)
  *  Notes   : Used only in GM command tnl.lua
  ************************************************************************/
 
-inline int32 CLuaBaseEntity::getBaseExp(lua_State* L)
+int32 CLuaBaseEntity::getBaseExp()
 {
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
 
-    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
-
-    lua_pushinteger(L, charutils::GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()]));
-
-    return 1;
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return charutils::GetExpNEXTLevel(PChar->jobs.job[PChar->GetMJob()]);
 }
 
 /************************************************************************
@@ -6177,16 +6173,12 @@ inline int32 CLuaBaseEntity::getBaseExp(lua_State* L)
  *  Notes   : Used only in GM command tnl.lua
  ************************************************************************/
 
-inline int32 CLuaBaseEntity::getJobExp(lua_State* L)
+int32 CLuaBaseEntity::getJobExp()
 {
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
 
-    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
-
-    lua_pushinteger(L, PChar->jobs.exp[PChar->GetMJob()]);
-
-    return 1;
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return PChar->jobs.exp[PChar->GetMJob()];
 }
 
 /************************************************************************
@@ -6196,16 +6188,12 @@ inline int32 CLuaBaseEntity::getJobExp(lua_State* L)
  *  Notes   : Used only in GM command tnl.lua
  ************************************************************************/
 
-inline int32 CLuaBaseEntity::getLimitPoints(lua_State* L)
+int32 CLuaBaseEntity::getLimitPoints()
 {
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
 
-    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
-
-    lua_pushinteger(L, PChar->PMeritPoints->GetLimitPoints());
-
-    return 1;
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return PChar->PMeritPoints->GetLimitPoints();
 }
 
 /************************************************************************
@@ -6217,12 +6205,9 @@ inline int32 CLuaBaseEntity::getLimitPoints(lua_State* L)
 
 int32 CLuaBaseEntity::getMerit(uint16 merit)
 {
-    if (m_PBaseEntity->objtype == TYPE_PC)
-    {
-        auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
 
-        return PChar->PMeritPoints->GetMeritValue(static_cast<MERIT_TYPE>(merit), PChar);
-    }
+    return PChar->PMeritPoints->GetMeritValue(static_cast<MERIT_TYPE>(merit), PChar);
 
     return 0;
 }
