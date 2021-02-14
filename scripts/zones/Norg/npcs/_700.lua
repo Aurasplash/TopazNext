@@ -105,7 +105,7 @@ entity.onEventFinish = function(player, csid, option)
         player:completeMission(tpz.mission.log_id.ROV, tpz.mission.id.rov.THE_BEGINNING)
         player:addMission(tpz.mission.log_id.ROV, tpz.mission.id.rov.FLAMES_OF_PRAYER)
     elseif csid == 277 then
-        npcUtil.giveKeyItem(player, tpz.ki.RHAPSODY_IN_WHITE)
+        -- npcUtil.giveKeyItem(player, tpz.ki.RHAPSODY_IN_WHITE)
         player:completeMission(tpz.mission.log_id.ROV, tpz.mission.id.rov.FLAMES_OF_PRAYER)
         player:addMission(tpz.mission.log_id.ROV, tpz.mission.id.rov.THE_PATH_UNTRAVELED)
     elseif csid == 278 then
