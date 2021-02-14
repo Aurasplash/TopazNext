@@ -171,12 +171,12 @@ local function completeRecord(player, record)
     if rewards["sparks"] ~= nil and type(rewards["sparks"]) == "number" then
         local bonus = 1
         if player:getEminenceCompleted(record) then
-            player:addCurrency('spark_of_eminence', rewards["sparks"] * bonus * SPARKS_RATE)
-            player:messageBasic(tpz.msg.basic.ROE_RECEIVE_SPARKS, rewards["sparks"] * SPARKS_RATE, player:getCurrency("spark_of_eminence"))
+            player:addCurrency('spark_of_eminence', rewards["sparks"] * bonus * SPARKS_RATE * 0.1)
+            player:messageBasic(tpz.msg.basic.ROE_RECEIVE_SPARKS, rewards["sparks"] * SPARKS_RATE * 0.1, player:getCurrency("spark_of_eminence"))
         else
             bonus = 3
-            player:addCurrency('spark_of_eminence', rewards["sparks"] * bonus * SPARKS_RATE)
-            player:messageBasic(tpz.msg.basic.ROE_FIRST_TIME_SPARKS, rewards["sparks"] * bonus * SPARKS_RATE, player:getCurrency("spark_of_eminence"))
+            player:addCurrency('spark_of_eminence', rewards["sparks"] * bonus * SPARKS_RATE * 0.1)
+            player:messageBasic(tpz.msg.basic.ROE_FIRST_TIME_SPARKS, rewards["sparks"] * bonus * SPARKS_RATE * 0.1, player:getCurrency("spark_of_eminence"))
         end
     end
 
@@ -191,9 +191,9 @@ local function completeRecord(player, record)
         player:setEminenceCompleted(record)
     end
 
-    if rewards["xp"] ~= nil and type(rewards["xp"]) == "number" then
-        player:addExp(rewards["xp"] * ROE_EXP_RATE)
-    end
+    -- if rewards["xp"] ~= nil and type(rewards["xp"]) == "number" then
+    --     player:addExp(rewards["xp"] * ROE_EXP_RATE)
+    -- end
 
     if rewards["keyItem"] ~= nil then
         npcUtil.giveKeyItem(player, rewards["keyItem"])
