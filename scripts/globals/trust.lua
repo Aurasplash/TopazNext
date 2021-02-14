@@ -140,6 +140,11 @@ tpz.trust.canCast = function(caster, spell, not_allowed_trust_ids)
         return -1
     end
 
+    -- Aurora: Trusts can only be summoned in a Battlefield
+    if not caster:hasStatusEffect(254) then
+        return tpz.msg.basic.TRUST_NO_CALL_AE
+    end
+
     -- Check party for trusts
     local num_pt = 0
     local num_trusts = 0
@@ -183,11 +188,11 @@ tpz.trust.canCast = function(caster, spell, not_allowed_trust_ids)
         return tpz.msg.basic.TRUST_NO_CAST_TRUST
     end
 
-    -- Limits set by ROV Key Items
-    if num_trusts >= 3 and not caster:hasKeyItem(tpz.ki.RHAPSODY_IN_WHITE) then
+    -- Limits set by Mission Progress (Dragon and Magicite)
+    if num_trusts >= 3 and not caster:hasKeyItem(tpz.ki.ADVENTURERS_CERTIFICATE) then
         caster:messageSystem(tpz.msg.system.TRUST_MAXIMUM_NUMBER)
         return -1
-    elseif num_trusts >= 4 and not caster:hasKeyItem(tpz.ki.RHAPSODY_IN_CRIMSON) then
+    elseif num_trusts >= 4 and not caster:hasKeyItem(tpz.ki.AIRSHIP_PASS) then
         caster:messageSystem(tpz.msg.system.TRUST_MAXIMUM_NUMBER)
         return -1
     end

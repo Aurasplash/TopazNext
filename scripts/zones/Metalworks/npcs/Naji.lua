@@ -151,7 +151,7 @@ entity.onEventFinish = function(player, csid, option)
     elseif csid == 980 then
         player:addSpell(897, true, true)
         player:messageSpecial(ID.text.YOU_LEARNED_TRUST, 0, 897)
-        player:setCharVar("BastokFirstTrust", 1)
+        player:setCharVar("BastokFirstTrust", 2)
     elseif csid == 982 then
         player:delKeyItem(tpz.ki.BLUE_INSTITUTE_CARD)
         player:messageSpecial(ID.text.KEYITEM_LOST, tpz.ki.BLUE_INSTITUTE_CARD)
