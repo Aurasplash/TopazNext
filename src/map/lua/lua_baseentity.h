@@ -351,9 +351,9 @@ public:
     // Player Points
     void  addExp(uint32 exp);
     void  delExp(uint32 exp);
-    void  getBaseExp(uint32 exp);
-    void  getJobExp(uint32 exp);
-    void  getLimitPoints(uint32 exp);
+    int32 getBaseExp();
+    int32 getJobExp();
+    int32 getLimitPoints();
     int32 getMerit(uint16 merit);
     uint8 getMeritCount();
     void  setMerits(uint8 numPoints); // set merits (testing only!)
