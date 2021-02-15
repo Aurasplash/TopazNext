@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `char_exp` (
   `charid` int(10) unsigned NOT NULL,
   `mode` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `war` int(10) unsigned NOT NULL DEFAULT '0',
-  `mnk` int(10)) unsigned NOT NULL DEFAULT '0',
+  `mnk` int(10) unsigned NOT NULL DEFAULT '0',
   `whm` int(10) unsigned NOT NULL DEFAULT '0',
   `blm` int(10) unsigned NOT NULL DEFAULT '0',
   `rdm` int(10) unsigned NOT NULL DEFAULT '0',
