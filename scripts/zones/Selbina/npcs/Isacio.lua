@@ -40,7 +40,7 @@ entity.onTrigger = function(player, npc)
 
         -- if player:hasKeyItem(tpz.ki.GILGAMESHS_INTRODUCTORY_LETTER) then
         --    player:startEvent(117)
-        elseif  IsacioElderMemVar == 1 then
+        if  IsacioElderMemVar == 1 then
             player:startEvent(114, 538)
         elseif IsacioElderMemVar == 2 then
             player:startEvent(114, 537)
