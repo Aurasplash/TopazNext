@@ -20,11 +20,13 @@ spell_object.onSpellCast = function(caster, target, spell)
         return 0
     end
 
-    local typeEffect = tpz.effect.DOOM
-
-    spell:setMsg(MobStatusEffectMove(caster, target, typeEffect, 10, 3, 10))
-
-    return typeEffect
+    local effect = tpz.effect.DOOM
+    if (target:hasStatusEffect(effect) == false) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB) -- gains effect
+        target:addStatusEffect(effect, 10, 3, 30)
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
+    end
 
     return 0
 end
